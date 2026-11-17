@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chopping Block</title>
+<meta name="theme-color" content="#070a1c">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Chopping Block">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<style>
+  :root { color-scheme: dark; }
+  html, body { margin: 0; background: #070a1c; color: #f6f0dc; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { min-height: 100vh; display: grid; place-content: center; justify-items: center; gap: 18px; padding: 24px; text-align: center; }
+  img { width: 96px; height: 96px; border-radius: 22px; }
+  a.go { background: #2bd66b; color: #04210f; text-decoration: none; font-weight: 700; padding: 12px 26px; border-radius: 10px; }
+  p { margin: 0; max-width: 34ch; color: #9aa4c6; line-height: 1.45; }
+</style>
+</head>
+<body>
+<main>
+  <img src="icon-192.png" alt="Chopping Block">
+  <a class="go" id="go" href="https://claude.ai/artifact/YZjk8Th28P2Y1QydNPxvk7">Open the dashboard</a>
+  <p id="hint">Install this page on your phone: Chrome menu, Install app (or Add to Home screen). Safari: Share, Add to Home Screen. Then open it from your home screen; it takes you to the dashboard.</p>
+</main>
+<script>
+  // Opened from the home screen (an installed app): go straight to the dashboard.
+  // Opened in a normal browser tab: stay here so the page can be installed.
+  var standalone = (window.matchMedia && window.matchMedia("(display-mode: standalone)").matches) || window.navigator.standalone === true;
+  if (standalone) { location.replace("https://claude.ai/artifact/YZjk8Th28P2Y1QydNPxvk7"); }
+  if ("serviceWorker" in navigator) { navigator.serviceWorker.register("sw.js").catch(function () {}); }
+</script>
+</body>
+</html>
